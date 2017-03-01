@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="oneApp">
+<head>
+	<meta charset="UTF-8">
+	<title>swiper</title>
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<style></style>
+</head>
+<script src="js/angular.js"></script>
+<script src="./js/swiper.min.js"></script>
+<body ng-controller='indexCtrl'>
+	<lunbotu arrs="arrs"></lunbotu>	
+</body>
+<script>
+	var app = angular.module('oneApp',[]);
+	app.controller('indexCtrl',function($scope){
+		$scope.arrs=['a','b','c','d','e'];
+	});
+	app.directive('lunbotu',function(){
+		return {
+			templateUrl:'directives/lunbotu.html',
+
+			scope:{
+				'arrs':'='
+			},
+			link:function(scope,ele,attr){
+				console.log(scope.arrs);
+				 var swiper = new Swiper('.swiper-container');
+				// var swiper = new Swiper('.swiper-container', {
+		  //       pagination: '.swiper-pagination',
+		  //       nextButton: '.swiper-button-next',
+		  //       prevButton: '.swiper-button-prev',
+		  //       paginationClickable: true,
+		  //       spaceBetween: 30,
+		  //       centeredSlides: true,
+		  //       autoplay: 2500,
+		  //       autoplayDisableOnInteraction: false
+		  //   });
+			}
+		}
+	})
+</script>
+</html>
